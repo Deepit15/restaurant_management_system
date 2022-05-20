@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RMS | Menu screen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+</head>
+<style>
+  table {  
+    border-collapse: separate;
+    border-spacing: 0 1rem !important;
+  }
+tr, td{
+  padding:15px !important; 
+}
+/* tr
+{
+  margin-top: 20px;
+} */
+#foodcol
+{
+  margin: 15px;
+  width : 70%;
+  float: left;
+  padding: 0px !important;
+}
+
+#foodname
+{
+  /* color:aqua; */
+  font-weight: bold;
+  font-size: 18px;
+
+}
+
+#fooddesc
+{
+  font-style: italic;
+  
+}
+
+.foodimg
+{
+  border-radius: 6px;
+  width : 179px;
+  height: 116px;
+}
+
+.price
+{
+  font-weight: bold;
+  color: rgb(244, 140, 76);
+}
+
+.price-button
+{
+  vertical-align: middle;
+  text-align: center;
+
+}
+
+#filterme
+{
+  display : none;
+  /* height: 50px; */
+  margin: 0% 8%; 
+}
+
+.filterElements
+{
+  width:20%;
+}
+
+.navbar-brand
+{
+  color:orange;
+  font-weight: bold;
+}
+
+.foodrow
+{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  /* x */
+}
+
+.counter
+{
+  display : flex;
+  align-items: center;
+}
+
+.count
+{
+width : 20px;
+/* margin:auto; */
+justify-content: center;
+}
+
+.btn-demo
+{
+  justify-content: center;
+  font-size:20px;
+  line-height:6px;
+  margin:0;
+  background-color: rgba(255, 68, 0, 0.632);
+}
+
+
+.addButton
+{
+    display : flex;
+    /* margin :50px; */
+    height : 30px;
+    
+}
+
+.btn-change
+{
+   font-weight : bold;
+   font-style: bold;
+   text-decoration: bold middle;
+   /* font-size: larger; */
+   font-size: 16px;
+   width : 20px;
+   padding: 1px ;
+   vertical-align : middle;
+}
+
+#itemCount
+{
+    margin: 5px;
+}
+
+.container-fluid
+{
+  width:100%;
+}
+
+body
+{
+  width:100%;
+  
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.place-order
+{
+  /* margin-bottom: 10px; */
+  text-align: center;
+  
+}
+
+a:link , a:visited, a:hover , a:active{
+text-decoration: none;
+color: white;
+}
+
+
+
+
+</style>
+
+<body onload="load();">
+
+<nav class="navbar" style="background-color: #ff8c00c0; border-radius: 0px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar">-</span>
+        <span class="icon-bar">-</span>
+        <span class="icon-bar">-</span>                        
+      </button>
+      <a class="navbar-brand" href="#" style="color:rgb(247, 247, 247)">FOODIE</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">     
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav">
+            
+            <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+            <li style="padding:0 20px;">
+              <a href="#">
+                <img src="../../assets/img/menu (2).png" alt="icon here" style="width: 25px;height: 25px;" >
+              </a>
+            </li>
+            <li style="padding:0 20px;">
+              <a href="#">
+                <img src="../../assets/img/filter.png" alt="icon here" style="width: 25px;height: 25px;" onClick="filterFood()">
+              </a>
+            </li>
+            <li style="padding:0 20px;">
+              <a href="#">
+                <img src="../../assets/img/shopping-cart (2).png" alt="icon here" style="width: 25px;height: 25px;">
+              </a></li>
+            <li style="padding:0 20px;">
+              <a href="#">
+                <img src="../../assets/img/user (3).png" alt="user icon here" style="width: 25px;height: 25px;">
+              </a>
+            </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="place-order text-center navbar navbar-fixed-bottom">
+  <button class="btn btn-success" ><a class="addtocart" onclick="createOrder();">Place Order</a></button>
+  <!-- <button class="btn btn-success" ><a class="addtocart"  onclick="addQuantity()">Place Order</a></button> -->
+</div>
+
+<div id="filterme" class="bg-warning d-flex justify-content-around">
+  <!-- Display me -->
+    <input type="search" id="form1" class="form-control filterElements" placeholder="Type query" aria-label="Search" />
+    <!-- <input type="search" id="form1" class="form-control filterElements" placeholder="Type query" aria-label="Search" /> -->
+    <input type="search" id="form1" class="form-control filterElements" placeholder="Type query" aria-label="Search" />
+</div>
+
+<!-- table content to be displayed -->
+
+<table class="menu-content container">
+  <tbody id="Menu">
+  </tbody>
+</table>
+  
+
+<script>
+  var arr= [];
+  var a=0;
+  var json_array;
+  function load(){
+      App.getmenu();
+  }
+
+  // function addToCart()
+  // {
+  //   console.log("Working");
+  // }
+
+  // function addQuantity()
+  // {
+   
+  //   var json_array = JSON.stringify(arr);
+  //   // alert(" "+arr);
+  //   // alert(""+arr.length);
+  //   // App.getOrder(arr);
+  //   App.getOrder(arr);
+    
+    
+
+
+  // }
+
+  function filterFood()
+  {
+    var x = document.getElementById('filterme');
+    if(x.style.display == 'none')
+    {
+      x.style.display = 'flex';
+      x.style.padding = '10px';
+      x.style.justifyContent = 'space-around';
+    }
+    else
+    {
+      x.style.display = 'none';
+    }
+  }
+function createOrder (){
+  //console.log(arr);
+  //console.log(arr);
+  App.createOrder(arr);
+}
+  function decrease(id)
+      {
+          var i = parseInt(document.getElementById(id).innerHTML);
+          if (isNaN(i)) i = 0;
+          // console.log(i);
+          if(i>0)
+          {
+            for(var j=0;j<arr.length;j++){
+                if(parseInt(arr[j].menu_id)==parseInt(id))
+                {
+                  // alert(" "+arr[j].menu_id);
+                  arr[j].qty=arr[j].qty - 1;
+                  console.log("quantity: "+arr[j].qty);
+                }
+              }
+              i = i - 1;
+          
+          }
+          document.getElementById(id).innerHTML = i;
+          //console.log(i);
+
+        //console.log(arr);
+      }
+      
+
+      function increase(id)
+      {
+        // console.log(id);
+        var success=1;
+          var i = parseInt(document.getElementById(id).innerHTML);
+          if (isNaN(i)) i = 0;
+          // console.log(i);
+          if(i<10)
+          {
+            
+              for(var j=0;j<arr.length;j++){
+                if(parseInt(arr[j].menu_id)==parseInt(id))
+                {
+                  // alert(" "+arr[j].menu_id);
+                  arr[j].qty=arr[j].qty + 1;
+                  success=0;
+                }
+              }
+            
+            if(success==1) {
+              arr.push({"menu_id":id,"qty":1});
+              a=parseInt(a)+1;
+            }
+              i = i + 1;
+              document.getElementById(id).innerHTML = i;
+          }
+          else
+          {
+              window.alert('exceeding limit of 10 units');
+          }
+        //console.log(arr);
+      }
+
+</script>
+
+<script src="../js/try.js"></script>
+<!-- <script src="test.js"></script> -->
+</body>
+</html>
+
+

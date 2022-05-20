@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RMS | Order</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="../js/try.js"></script>
+  <script>
+       function load()
+       {
+        App.getOrder();
+      }
+  </script>
+</head>
+
+<style>
+
+
+  *
+  {
+    box-sizing: border-box;
+    margin : 0;
+
+  }
+  .top-nav
+  {
+    display : flex !important;
+    justify-content:space-between;
+    background-color:rgba(247, 137, 34, 0.543);
+    height: 40px;
+    /* font-style: bold; */
+    
+  }
+  .left-text
+  {
+    margin-left : 2%;
+    /* font-weight: bold; */
+    color:black;
+   
+  }
+  .right-text
+  {
+    margin-right: 2%;
+    color:black;
+   
+    
+  }
+  h5
+  {
+    font-weight: bold;
+  }
+
+  .btn 
+  {
+      background-color:rgba(249, 124, 6, 0.863);
+  }
+
+  
+#order
+{
+    width : 80%;
+    margin : auto;
+    
+}
+
+.card
+{
+    justify-content: center;
+    margin-top: 5%;
+}
+.food-content
+{
+    display: flex;
+    justify-content : space-between;
+}
+.fooddesc-price
+{
+    width : 75%;   
+} 
+.food-quantity
+{
+    width :25%;
+    text-align : right;
+    margin-right: 5%;
+}
+
+.order-status
+{
+    display : flex;
+}
+.orderno
+{
+    width : 75%;
+}
+.status {
+    width :25%;
+    text-align : right;
+    margin-right: 5%;
+}
+</style>
+
+<body onload="load();">
+  <div class="top-nav" id="axc">
+    <div class="left-text">
+      <h5>Table no : A<span id="tableNo"></span> </h5>
+    </div>
+    <div class="right-text">
+      <h5>Date : </h5>
+    </div>
+</div>
+
+<table>
+  <tbody id="Order">
+    <!-- <%=a%> -->
+  </tbody>
+</table>
+
+  <div class="checkout text-center navbar navbar-fixed-bottom d-flex">
+    <button class="btn btn-success">Back to Menu</button>  
+    <button class="btn btn-success">Checkout</button>
+  </div>
+
+
+  
+
+</body>
+
+</html>
