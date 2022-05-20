@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+    crossorigin="anonymous">
+    <title>Document</title>
+    <script src="../js/try.js"></script>
+    <script src="../js/test.js"></script>
+    <script>
+        function validateOtp()
+        {
+            var otp = document.getElementById('enterOtp').value;
+            var test = (otp == sessionStorage.getItem('userOtp'));
+            if(test == true)
+            {
+                alert("Displaying Menu Book!");
+                // window.location.href ="http://localhost:5500/src/html/demo.html";
+                // return true;
+            }
+            // else
+            // {
+            //     alert("Wrong OTP entered!");
+            // }
+            
+        }
+    </script>
+</head>
+<style>
+    form
+    {
+        width : 25%;
+       margin:auto;
+       margin-top: 10%;
+    }
+    .accept-response
+    {
+        margin: 2%;
+    }
+</style>
+<body>
+    <form class="d-flex flex-column" action="../html/demo.html">
+        <div class="accept-response">
+            <label for="enterOtp">Enter Otp</label>
+        <input type="text" class="form-control" id="enterOtp" aria-describedby="otpHelp" placeholder="Enter OTP">
+        </div>
+        <div class="accept-response">
+            <!-- <button type="submit" class="btn btn-primary"><a onclick="validateOtp();">Submit</a></button> -->
+            <button class="btn btn-primary" onclick="validateOtp();">Enter OTP</button>
+        </div>
+        
+      </form>
+</body>
+
+</html>
