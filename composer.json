@@ -1,0 +1,20 @@
+{
+  "name": "deepit2000/admin",
+  "description": "Admin - admin control panel and dashboard that's based on Bootstrap 4",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "responsive",
+    "back-end",
+    "template",
+    "theme",
+    "web",
+    "admin"
+  ],
+  "authors": [
+    {
+      "name": "Deepit"
+    }
+  ]
+}

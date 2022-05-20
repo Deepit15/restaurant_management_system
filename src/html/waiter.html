@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMS | waiter </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    #vacant {
+        background: rgb(27, 202, 7);
+        color: #f1f1f1;
+    }
+
+    #reserved {
+        background: rgb(5, 158, 213);
+        color: #f1f1f1;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    /* Float four columns side by side */
+    .column {
+      float: left;
+      width: 25%;
+      /* height : 160px; */
+      padding: 0 10px;
+      /* margin: 30px; */
+    }
+
+    .card
+    {
+        border-radius: 10px;
+        margin: 1%;
+    }
+    
+    /* Remove extra left and right margins, due to padding */
+    .row {margin: 10px 5px;}
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Responsive columns */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 80%;
+        display: block;
+        margin: 10%;
+        height: 25%;
+      }
+    }
+    
+    /* Style the counter cards */
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      padding: 16px;
+      text-align: center;
+      height: 200px;
+      background-color: #f1f1f1;
+      
+    }
+    </style>
+
+<script>
+    function load()
+    {
+        App.getwaittable();
+    }
+</script>
+
+<body onload="load();">
+    <nav class="navbar" style="background-color: #F8F8F8;border-radius: 0px;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand text-success" style="font-weight: bold;" href="#">RMS | Waiter</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">     
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <ul class="nav navbar-nav">
+                  
+                  <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+                  <li style="padding:0 20px;">
+                    <a href="#">
+                      <img src="../../assets/img/menuIcon.png" alt="icon here" style="width: 30px;height: 30px;" >
+                    </a>
+                  </li>
+                  <li style="padding:0 20px;">
+                    <a href="#">
+                        <img src="../../assets/img/table 2.png" alt="icon here" style="width: 30px;height: 30px;" >
+                    </a>
+                  </li>
+                  <li style="padding:0 20px;">
+                    <a href="#">
+                        <img src="../../assets/img/user (3).png" alt="icon here" style="width: 30px;height: 30px;" >
+                    </a></li>
+                  
+            </ul>
+          </div>
+        </div>
+    </nav>
+<div id="table">
+    
+</div>
+    <!-- <div class="row">
+        <div class="column">
+          <div class="card">
+            <h3>Card 1</h3>
+            <p>Some text</p>
+            <p>Some text</p>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <h3>Card 2</h3>
+            <p>Some text</p>
+            <p>Some text</p>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <h3>Card 3</h3>
+            <p>Some text</p>
+            <p>Some text</p>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <h3>Card 4</h3>
+            <p>Some text</p>
+            <p>Some text</p>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="column">
+          <div class="card">
+            <h3>Card 1</h3>
+            <p>Some text</p>
+            <p>Some text</p>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <h3>Card 2</h3>
+            <p>Some text</p>
+            <p>Some text</p>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <h3>Card 3</h3>
+            <p>Some text</p>
+            <p>Some text</p>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <h3>Card 4</h3>
+            <p>Some text</p>
+            <p>Some text</p>
+          </div>
+        </div>
+    </div> -->
+
+      
+
+
+
+</body>
+<script src="../js/try.js"></script>
+</html>
