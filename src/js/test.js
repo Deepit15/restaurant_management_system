@@ -70,6 +70,13 @@ app.get("/customers", (req, res) => {
   });
 });
 
+app.get("/sales", (req, res) => {
+  mysqlConnection.query("SELECT YEAR(bill_date) as SalesYear, MONTH(bill_date) as SalesMonth, Day(bill_date) as SalesDay, SUM(amount) AS TotalSales FROM bills GROUP BY YEAR(bill_date), MONTH(bill_date), Day(bill_date) ORDER BY YEAR(bill_date), MONTH(bill_date), Day(bill_date)", (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
 //Get an employees
 app.get("/customer/:id", (req, res) => {
   mysqlConnection.query(

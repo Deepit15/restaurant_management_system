@@ -4,20 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE | Cuisine</title>
+  <title>AdminLTE  | Table</title>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Google Font: Source Sans Pro -->
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-</script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../../https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
@@ -33,42 +32,23 @@
   <!-- summernote -->
   <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
 </head>
-
 <script>
-    function load() {
-      App.getcuisine();
-    }
+        function load()
+        {
+            App.getsale();
+        }
 
-    function insert() {
-      App.postcuisine();
-    }
-
-    function remove(i) {
-      console.log(i);
-      App.rem_cuisine(i);
-      // load();
-    }
-
-    function update() {
-      App.postupcuisine();
-    }
-
-    function display(i) {
-      App.getpatcuisine(i);
-    }
-
-    $(document).ready(function () {
-      $("#srch").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $("#Customer_BTable tr").filter(function () {
-          $(this).toggle($(this).text()
-            .toLowerCase().indexOf(value) > -1)
-        });
-      });
-    });
-</script>
-
-<body class="hold-transition sidebar-mini layout-fixed"  onload="load();" >
+        $(document).ready(function() {
+                $("#srch").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#Customer_BTable tr").filter(function() {
+                        $(this).toggle($(this).text()
+                        .toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+    </script>
+<body class="hold-transition sidebar-mini layout-fixed" onload="load();">
   <div class="wrapper">
 
     <!-- Preloader -->
@@ -122,7 +102,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="../../assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="../../assets/img/user1-128x128.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" class="d-block">Deepit Aggarwal</a>
@@ -169,7 +149,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link">
+                  <a href="./index.html" class="nav-link">n
                     <i class="far fa-circle nav-icon"></i>
                     <p>Normal</p>
                   </a>
@@ -206,14 +186,14 @@
                     <p>Item</p>
                   </a>
                 </li>
-               <!-- <li class="nav-item">
-                  <a href="Supplier.html" class="nav-link">
-                    <span class="material-symbols-outlined">
-support_agent
-</span>
-                    <p>Supplier</p>
-                  </a>
-                </li> -->
+                <!-- <li class="nav-item">
+                    <a href="Supplier.html" class="nav-link">
+                      <span class="material-symbols-outlined">
+  support_agent
+  </span>
+                      <p>Supplier</p>
+                    </a>
+                    </li> -->
                 <!-- <li class="nav-item">
                   <a href="./index.html" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
@@ -221,15 +201,15 @@ support_agent
                   </a>
                 </li> -->
                 <li class="nav-item">
-                  <a href="./table.html" class="nav-link">
-                   <span class="material-symbols-outlined">table_rows</span>
-                    <p>Table</p>
+                  <a href="table.html" class="nav-link">
+                    <span class="material-symbols-outlined">table_rows</span>
+                    <p>Sales</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="customer.html" class="nav-link">
                     <span class="material-symbols-outlined">
-account_circle
+person
 </span>
                     <p>Customer</p>
                   </a>
@@ -281,14 +261,18 @@ local_cafe
                   </a>
                 </li> -->
                 <li class="nav-item">
-                  <a href="./bill.html" class="nav-link">
+                  <a href="bill.html" class="nav-link">
                     <span class="material-symbols-outlined">
 receipt_long
 </span>
                     <p>Bill Invoice</p>
                   </a>
                 </li>
-                
+              </ul>
+            </li>
+
+
+
 <li class="nav-item">
                     <a href="qr.html" class="nav-link">
                       <span class="material-symbols-outlined">
@@ -297,9 +281,6 @@ qr_code_scanner
                       <p>QR Code Generator</p>
                     </a>
                   </li>
-              </ul>
-            </li>
-
 
 
 
@@ -319,12 +300,12 @@ qr_code_scanner
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Cuisine</h1>
+              <h1 class="m-0">Table</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard v1</li>
+                <li class="breadcrumb-item active">Table</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -334,105 +315,32 @@ qr_code_scanner
 
       <!-- Main content -->
       <section class="content">
-        
-           <div class="page-content p-5" id="content">
+        <div class="page-content p-10" id="content">
   
-            <a><span class='material-icons' style="color: black;" data-toggle="modal" data-target="#addcus">add</span></a> 
-  
-           <!-- Modal -->
-        <div class="modal fade" id="addcus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add New Record</h5><br>
+       
+    
 
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            
-            <div class="modal-body">
-              <form id="addRecordForm">
-              <!-- //	sup_id	sup_name	sup_email	sup_no	sup_add	 -->
-<!-- 
-                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Cuisine id</lable>
-                <input class="modal-content" style="width: 200px; float:left;" type="text"
-                  id="sup_id"></input><br><br> -->
-                <!-- <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Cuisine id</lable>
-                <input class="modal-content" style="width: 200px; float:left;" type="text"
-                  id="cuisine_id"></input><br><br> -->
-                <label class="modal-content" style="width: 200px; float:left; border: 0px;">Cuisine name</label>
-                <input class="modal-content" style="width: 200px; float:left;" type="text"
-                  id="cuisine_name"></input><br><br>
-
-
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="insert();">Add Data</button>
-            </div>
-          </div>
-        </div>
-      </div>
-            
-            
-  <!--New Modal-->
-  <div class="modal fade" id="changedata" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Change Record</h5><br>
-
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="changeRecordForm">
-            <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Cuisine id</lable>
-            <input class="modal-content" style="width: 200px; float:left;" type="text"
-              id="rcuisine_id"></input><br><br>
-            <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Cuisine name</lable>
-            <input class="modal-content" style="width: 200px; float:left;" type="text"
-              id="rcuisine_name"></input><br><br>
-
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update();">Update Data</button>
-      </div>
-    </div>
+  </br>
+  <section class="banner-section">
+<input id="srch" type="text" 
+                 placeholder="Search here">
+                 </br>
+    <table id="Customer_Table" style="width:100%">
+        <tr>
+            <th>Sales Year</th>
+            <th>Sales Month</th>
+            <th>Sales Day</th>
+            <th>Total</th>
+        </tr>
+        <tbody id ="Customer_BTable">
+        </tbody>
+       
+    </table>
+    </section>
   </div>
-</div>
-
-          
-            </br>
-            <section class="banner-section">
-          <input id="srch" type="text" 
-                           placeholder="Search here">
-                           </br>
-              <table id="Customer_Table" style="width:100%;">
-                  <tr>
-                    <!-- //	sup_id	sup_name	sup_email	sup_no	sup_add	 -->
-                      <th>Cuisine ID</th>
-                      <th>Cuisine Name</th>
-                  </tr>
-                  <tbody id ="Customer_BTable">
-                  </tbody>
-                 
-              </table>
-              </section>
-              </div>
-              
       </section>
       <!-- /.content -->
     </div>
-    
     <!-- /.content-wrapper -->
     <footer class="main-footer">
       <!-- <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
@@ -484,6 +392,7 @@ qr_code_scanner
   <script src="../js/demo.js"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="../js/pages/dashboard.js"></script>
+
   <script src="../js/try.js"></script>
 </body>
 

@@ -1269,7 +1269,29 @@ App = {
   },
 
 
- 
+  getsale: function () {
+    var b = "";
+    const api_url = "http://localhost:3000/sales";
+    // console.log(api_url);
+    Customer_BTable.innerHTML = b;
+    data = this.getapi(api_url).then((data) => {
+      // console.log("y");
+      for (var i = 0; i <= data.length; i++) {
+        var a =
+          "<tr><td scope='row'>" +
+          data[i].SalesYear +
+          "</td><td  scope='row'>" +
+          data[i].SalesMonth +
+          "</td><td  scope='row'>" +
+          data[i].SalesDay +
+          "</td><td  scope='row'>" +
+          data[i].TotalSales  +"</td></tr>";
+        // console.log(data[i]);
+        Customer_BTable.innerHTML += a;
+      }
+      // console.log("a")
+    });
+  },
   
 
   getpatmenu: function (i) {
