@@ -258,16 +258,16 @@ App = {
           var a =
             "<div class='column' ><div class='card' id='vacant'><h3>" +
             data[i].table_id +
-            "</h3><p><span  style='display:flex; '><img src='../../assets/img/group.png' style='height:49px; width:49px;' />" +
+            "</h3><p><span  style='display: block; margin-left: auto; margin-right: auto  '><h3><img src='../../assets/img/group.png' style='height:49px; width:49px;' /> " +
             data[i].no_person +
-            "</span></div></div>";
+            "</h3></span></div></div>";
         } else {
           var a =
             "<div class='column' ><div class='card' id='reserved'><h3>" +
             data[i].table_id +
-            "</h3><p style='display:flex;'><img src='../../assets/img/group.png' style='height:49px; width:49px;'/>" +
+            "</h3><p style='display: block; margin-left: auto; margin-right: auto  '><h3><img src='../../assets/img/group.png' style='height:49px; width:49px;'/> " +
             data[i].no_person +
-            "</p></div></div>";
+            "</h3></p><h3>"+data[i].OTP+"</h3></div></div>";
         }
         table.innerHTML += a;
         // console.log(data[0]);
