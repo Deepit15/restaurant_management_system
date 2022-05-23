@@ -1542,11 +1542,11 @@ console.log(select.value);
         }
         
           var a =
-            "<div class='column' ><div class='card' id='vacant'><h3>" +
+            "<div class='column' ><div class='card' id='"+data[i].food_type+"'><p><h2>" +
             data[i].name +
-            "</h3><p> " +
+            "</h2><br><h2> " +
             data[i].quantity +
-            "</h3></p><h3><p> <select id='"+i+"' onchange='App.change_status("+data[i].sub_order_id+","+data[i].food_id +","+i+")'><option value='preparing'>Preparing</option><option value='prepared'>Prepared</option></p></h3></span></div></div>";
+            "</h2><br><h4> <select id='"+i+"' onchange='App.change_status("+data[i].sub_order_id+","+data[i].food_id +","+i+")'><option value='preparing'>Preparing</option><option value='prepared'>Prepared</option></h2></p></div></div>";
         // var a =
         //   "<tr><td scope='row'>" +
         //   data[i].name +

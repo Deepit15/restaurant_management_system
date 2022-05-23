@@ -40,14 +40,16 @@
       box-sizing: border-box;
     }
     
-    #vacant {
-        background: #FF6161;
-        color: #070707;
+    #veg {
+        background: #3d9912;
+        color: #f1f1f1;  
+        font-weight: bolder !important;
     }
 
-    #reserved {
-        background: rgb(5, 158, 213);
+    #non-veg {
+        background: rgb(212, 52, 7);
         color: #f1f1f1;
+        font-weight: bolder !important;
     }
 
     body {
@@ -104,6 +106,18 @@
       background-color: #f1f1f1;
       
     }
+
+    div.column {
+    height: 10em;
+    position: relative }
+div.colum p {
+    margin: 0;
+    background: yellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
     </style>
 
 <script>
@@ -133,11 +147,11 @@
 <div>
   <section class="banner-section">
     <table style="width:100%;">
-      <tr>
+      <!-- <tr>
         <th scope='row'>Item Name</th>
         <th scope='row'>Quantity</th>
         <th scope='row'>Status</th>
-      </tr>
+      </tr> -->
       <tbody id="kitchen_table">
 
       </tbody>
