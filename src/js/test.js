@@ -177,9 +177,9 @@ app.post("/employeeupdate", (req, res) => {
       emp.emp_name +
       "' , emp_add = '" +
       emp.emp_add +
-      "', role_id='" +
+      "', role_id=" +
       emp.role_id +
-      "', emp_no=" +
+      ", emp_no=" +
       emp.emp_no +
       ", emp_email='" +
       emp.emp_email +

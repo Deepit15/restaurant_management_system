@@ -283,36 +283,38 @@
                            <span aria-hidden="true">&times;</span>
                            </button>
                         </div>
+                        <form id="addRecordForm" class="row needs-validation" onsubmit="return insert();" novalidate>
                         <div class="modal-body">
-                           <form id="addRecordForm" novalidate>
+                           
                               <div class="card-body">
                                  <div class="form-group">
                                     <lable >Supplier name</lable>
                                     <input class="form-control" type="text"
-                                       id="sup_name" ></input>
+                                       id="sup_name" pattern="[A-Za-z]{1,}" required></input>
                                  </div>
                                  <div class="form-group">
                                     <label >Supplier email</label>
-                                    <input class="form-control" type="text"
-                                       id="sup_email" ></input>
+                                    <input class="form-control" type="email"
+                                       id="sup_email" required></input>
                                  </div>
                                  <div class="form-group">
                                     <label >Supplier no</label>
-                                    <input class="form-control" type="text"
-                                       id="sup_no" ></input>
+                                    <input class="form-control" type="tel"
+                                       id="sup_no" pattern="[0-9]{10}" required></input>
                                  </div>
                                  <div class="form-group">
                                     <label >Supplier add</label>
                                     <input class="form-control" type="text"
-                                       id="sup_add" ></input>
+                                       id="sup_add" pattern="[A-Za-z0-9-]{1,}" required></input>
                                  </div>
                               </div>
-                           </form>
-                        </div>
+                           
                         <div class="modal-footer">
                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-primary" value="Add Data" data-dismiss="modal" onclick="insert();">Add Data</button>
+                           <button type="submit" class="btn btn-primary" value="Add Data">Add Data</button>
                         </div>
+                     </form>
+                  </div>
                      </div>
                   </div>
                </div>
@@ -328,40 +330,41 @@
                            <span aria-hidden="true">&times;</span>
                            </button>
                         </div>
+                        <form id="addRecordForm" class="row needs-validation" onsubmit="return update();" novalidate>
                         <div class="modal-body">
-                           <form id="changeRecordForm">
                               <div class="card-body">
                                  <div class="form-group">
                                     <lable >Supplier id</lable>
                                     <input class="form-control" type="text"
-                                       id="rsup_id"></input>
+                                       id="rsup_id" readonly></input>
                                  </div>
                                  <div class="form-group">
                                     <lable >Supplier name</lable>
                                     <input class="form-control" type="text"
-                                       id="rsup_name"></input>
+                                       id="rsup_name" pattern="[A-Za-z]{1,}" required></input>
                                  </div>
                                  <div class="form-group">
                                     <label >Supplier email</label>
-                                    <input class="form-control" type="text"
-                                       id="rsup_email"></input>
+                                    <input class="form-control" type="email"
+                                       id="rsup_email" required></input>
                                  </div>
                                  <div class="form-group">
                                     <label >Supplier no</label>
                                     <input class="form-control" type="text"
-                                       id="rsup_no"></input>
+                                       id="rsup_no"  pattern="[0-9]{1,}" required>></input>
                                  </div>
                                  <div class="form-group">
                                     <label >Supplier add</label>
                                     <input class="form-control" type="text"
-                                       id="rsup_add"></input>
+                                       id="rsup_add" pattern="[A-Za-z0-9-]{1,}" required></input>
                                  </div>
-                           </form>
-                           </div>
+                           
                            <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update();">Update Data</button>
+                              <button type="submit" class="btn btn-primary">Update Data</button>
                            </div>
+                        </form>
+                     </div>
                         </div>
                      </div>
                   </div>
@@ -432,4 +435,24 @@
       <script src="../js/pages/dashboard.js"></script>
       <script src="../js/try.js"></script>
    </body>
+   <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
 </html>

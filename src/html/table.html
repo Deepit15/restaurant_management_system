@@ -259,36 +259,38 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
+                           <form id="addRecordForm" class="row needs-validation" onsubmit="return App.posttable();" novalidate>
                            <div class="modal-body">
-                              <form id="addRecordForm">
+                              
                                  <div class="card-body">
                                     <div class="form-group">
                                        <lable>Table ID</lable>
-                                       <input class="form-control" type="text" id="table_id"></input>
+                                       <input class="form-control" type="text" id="table_id" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <lable>Number of Person</lable>
-                                       <input class="form-control" type="text" id="no_person"></input>
+                                       <input class="form-control" type="text" id="no_person" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <lable>Status</lable>
-                                       <input class="form-control"type="text" id="status" ></input>
+                                       <input class="form-control"type="text" id="status" pattern="[A-Za-z]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <lable>Waiter ID</lable>
-                                       <input class="form-control"type="text" id="waiter_id" ></input>
+                                       <input class="form-control"type="text" id="waiter_id" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <lable>OTP</lable>
-                                       <input class="form-control"type="text" id="otp" ></input>
+                                       <input class="form-control"type="text" id="otp" pattern="[0-9]{1,}" required></input>
                                     </div>
                                  </div>
-                              </form>
-                           </div>
+                              
                            <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" onclick="App.posttable();">Add Data</button>
+                              <button type="submit" class="btn btn-primary" >Add Data</button>
                            </div>
+                        </form>
+                     </div>
                         </div>
                      </div>
                   </div>
@@ -303,37 +305,40 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
-                           <div class="modal-body">
-                              <form id="changeRecordForm">
+                           
+                              <form id="changeRecordForm" class="row needs-validation" onsubmit="return update();" novalidate>
+                                 <div class="modal-body">
                                  <div class="card-body">
                                     <div class="form-group">
                                        <lable>Table ID</lable>
-                                       <input class="form-control" type="text" id="rtable_id"></input>
+                                       <input class="form-control" type="text" id="rtable_id" readonly></input>
                                     </div>
                                     <div class="form-group">
                                        <lable>Number of Person</lable>
-                                       <input class="form-control" type="text" id="rno_person"></input>
+                                       <input class="form-control" type="text" id="rno_person" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <lable>Status</lable>
-                                       <input class="form-control" type="text" id="rstatus"></input>
+                                       <input class="form-control" type="text" id="rstatus" pattern="[A-Za-z]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <lable>Waiter ID</lable>
-                                       <input class="form-control"type="text" id="rwaiter_id" ></input>
+                                       <input class="form-control"type="text" id="rwaiter_id" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <lable>OTP</lable>
-                                       <input class="form-control"type="text" id="rotp" ></input>
+                                       <input class="form-control"type="text" id="rotp" pattern="[0-9]{1,}" required></input>
                                     </div>
                                  </div>
-                              </form>
-                           </div>
+                              
                            <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update();">Update Data</button>
+                              <button type="submit" class="btn btn-primary">Update Data</button>
                            </div>
-                        </div>
+                           </div>
+                        </form>
+                     </div>
+                        
                      </div>
                   </div>
                   </br>
@@ -403,4 +408,24 @@
       <script src="../js/pages/dashboard.js"></script>
       <script src="../js/try.js"></script>
    </body>
+   <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
 </html>  

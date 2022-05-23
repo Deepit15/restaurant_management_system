@@ -14,7 +14,7 @@
       <!-- Font Awesome -->
       <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
       <!-- Ionicons -->
-      <link rel="stylesheet" href="../../https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+      <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
       <!-- Tempusdominus Bootstrap 4 -->
       <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
       <!-- iCheck -->
@@ -260,46 +260,47 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
+                           <form id="addRecordForm" class="row needs-validation" onsubmit="return insert();" novalidate>
                            <div class="modal-body">
-                              <form id="addRecordForm">
                                  <div class="card-body">
                                     <div class="form-group">
                                        <lable >Employee Name</lable>
-                                       <input class="form-control" type="text"
-                                          id="emp_name"></input>
+                                       <input class="form-control" pattern="[A-Za-z]{1,}" type="text"
+                                          id="emp_name" required></input>
                                     </div>
                                     <div class="form-group">
                                        <lable >Employee Address</lable>
-                                       <input class="form-control" type="text"
-                                          id="emp_add"></input>
+                                       <input class="form-control" pattern="[0-9A-Za-z]{1,}" type="text"
+                                          id="emp_add" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >Employee Role</label>
-                                       <input class="form-control" type="text"
-                                          id="role_id"></input>
+                                       <input class="form-control" pattern="[0-9]{1,}" type="tel"
+                                          id="role_id" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >Employee Number</label>
-                                       <input class="form-control" type="text"
-                                          id="emp_no"></input>
+                                       <input class="form-control" type="tel" pattern="[0-9]{10}"
+                                          id="emp_no" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >Employee Email</label>
-                                       <input class="form-control" type="text"
-                                          id="emp_email"></input>
+                                       <input class="form-control" type="email"
+                                          id="emp_email" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >Employee Status</label>
-                                       <input class="form-control" type="text"
-                                          id="status"></input>
+                                       <input class="form-control" type="text" pattern="[A-Za-z]{1,}"
+                                          id="status" required></input>
                                     </div>
                                  </div>
-                              </form>
-                           </div>
+                              
                            <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="insert();">Add Data</button>
+                              <button type="submit" class="btn btn-primary" >Add Data</button>
                            </div>
+                        </form>
+                     </div>
                         </div>
                      </div>
                   </div>
@@ -315,51 +316,53 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
+                           <form id="changeRecordForm" class="row needs-validation"  onsubmit="return update();">
                            <div class="modal-body">
-                              <form id="changeRecordForm">
+                              
                                  <div class="card-body">
                                     <div class="form-group">
                                        <lable >Employee ID</lable>
                                        <input class="form-control" type="text"
-                                          id="remp_id"></input>
+                                          id="remp_id" pattern="[0-9]{1,}" readonly></input>
                                     </div>
                                     <div class="form-group">
                                        <lable >Employee Name</lable>
                                        <input class="form-control" type="text"
-                                          id="remp_name"></input>
+                                          id="remp_name" pattern="[A-Za-z]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <lable >Employee Address</lable>
                                        <input class="form-control" type="text"
-                                          id="remp_add"></input>
+                                          id="remp_add" pattern="[A-Z a-z0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >Employee Role</label>
-                                       <input class="form-control" type="text"
-                                          id="rrole_id"></input>
+                                       <input class="form-control" type="tel"
+                                          id="rrole_id" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >Employee Number</label>
-                                       <input class="form-control" type="text"
-                                          id="remp_no"></input>
+                                       <input class="form-control" type="tel"
+                                          id="remp_no" pattern="[0-9]{10}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >Employee Email</label>
-                                       <input class="form-control" type="text"
-                                          id="remp_email"></input>
+                                       <input class="form-control" type="email"
+                                          id="remp_email" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >Employee Status</label>
                                        <input class="form-control" type="text"
-                                          id="rstatus"></input>
+                                          id="rstatus" pattern="[A-Za-z]{1,}" required></input>
                                     </div>
                                  </div>
-                              </form>
-                           </div>
+                              
                            <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update();">Update Data</button>
+                              <button type="submit" class="btn btn-primary">Update Data</button>
                            </div>
+                        </form>
+                     </div>
                         </div>
                      </div>
                   </div>
@@ -426,10 +429,28 @@
       <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
       <!-- AdminLTE App -->
       <script src="../js/adminlte.js"></script>
-      <!-- AdminLTE for demo purposes -->
-      <script src="../js/demo.js"></script>
       <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
       <script src="../js/pages/dashboard.js"></script>
       <script src="../js/try.js"></script>
    </body>
+   <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
 </html>

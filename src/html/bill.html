@@ -261,46 +261,51 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
+                           <form id="addRecordForm" class="row needs-validation" novalidate onsubmit="return insert();">
                            <div class="modal-body">
-                              <form id="addRecordForm">
                                  <div class="card-body">
                                     <div class="form-group">
                                        <label >Cus id</label>
                                        <input class="form-control"  type="text"
-                                          id="cus_id"></input>
+                                          id="cus_id" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label  >waiter id</label>
                                        <input class="form-control" type="text"
-                                          id="waiter_id"></input>
+                                          id="waiter_id" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >bill date</label>
-                                       <input class="form-control" type="text"
-                                          id="bill_date"></input>
+                                       <input class="form-control" type="datetime"
+                                          id="bill_date" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label>order id</label>
                                        <input class="form-control" type="text"
-                                          id="order_id"></input>
+                                          id="order_id" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label  >table id</label>
                                        <input class="form-control" type="text"
-                                          id="table_id"></input>
+                                          id="table_id" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label  >amount</label>
                                        <input class="form-control"  type="text"
-                                          id="amount"></input>
+                                          id="amount" pattern="[0-9.]{1,}" required></input>
                                     </div>
+
+                                 </div>
+                                 <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" >Add Data</button>
                                  </div>
                               </form>
                            </div>
-                           <div class="modal-footer">
+                           <!-- <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                               <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="insert();">Add Data</button>
-                           </div>
+                           </div> -->
                         </div>
                      </div>
                   </div>
@@ -317,7 +322,7 @@
                               </button>
                            </div>
                            <div class="modal-body">
-                              <form id="changeRecordForm">
+                              <form id="changeRecordForm" >
                                  <table id="billdisplay">
                                     <!-- <thead> -->
                                     <tr>
@@ -353,10 +358,10 @@
                                       id="ramount"></input> -->
                               </form>
                            </div>
-                           <div class="modal-footer">
+                           <!-- <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                               <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update();">Update Data</button>
-                           </div>
+                           </div> -->
                         </div>
                      </div>
                   </div>

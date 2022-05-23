@@ -252,21 +252,24 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
+                           <form id="addRecordForm" class="row needs-validation"  onsubmit="return insert();" novalidate>
                            <div class="modal-body">
-                              <form id="addRecordForm">
+                              
                                  <div class="card-body">
                                     <div class="form-group">
                                        <lable>Role name</lable>
                                        <input class="form-control" type="text"
-                                          id="role_name"></input>
+                                          id="role_name" pattern="[a-zA_Z]{1,10}" required></input>
+                                          <div class="invalid-feedback" >Please enter role name</div>
                                     </div>
+                                 </div>
+                                 <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" >Add Data</button>
                                  </div>
                               </form>
                            </div>
-                           <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="insert();">Add Data</button>
-                           </div>
+                           
                         </div>
                      </div>
                   </div>
@@ -282,27 +285,31 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
+                           <form id="changeRecordForm" action="javascript:return;" class="row needs-validation" onsubmit="update();" >
                            <div class="modal-body">
-                              <form id="changeRecordForm">
+                              
                                  <div class="card-body">
                                     <div class="form-group">
                                        <lable>Role id</lable>
                                        <input class="form-control" type="text"
-                                          id="rrole_id"></input>
+                                          id="rrole_id"  readonly></input>
                                     </div>
                                     <div class="form-group">
                                        <lable>Role name</lable>
                                        <input class="form-control" type="text"
-                                          id="rrole_name"></input>
+                                          id="rrole_name" pattern="[A-Za-z]{1,10}" required></input>
                                     </div>
+                                 
                                  </div>
-                              </form>
-                           </div>
+                              
                            <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update();">Update Data</button>
+                              <button type="submit" class="btn btn-primary"  >Update Data</button>
                            </div>
+                        </form>
                         </div>
+                        </div>
+
                      </div>
                   </div>
                   </br>
@@ -370,4 +377,24 @@
       <script src="../js/pages/dashboard.js"></script>
       <script src="../js/try.js"></script>
    </body>
+   <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
 </html>

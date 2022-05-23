@@ -266,22 +266,24 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
+                           <form id="addRecordForm" class="row needs-validation" onsubmit="return insert();" novalidate>
                            <div class="modal-body">
-                              <form id="addRecordForm">
+                              <!-- <form id="addRecordForm"> -->
                                  
                                  <div class="card-body">
                                     <div class="form-group">
                                        <label >Cuisine name</label>
                                        <input class="form-control" type="text"
-                                          id="cuisine_name"></input>
+                                          id="cuisine_name" pattern="[A-Za-z]{1,}"required></input>
                                     </div>
                                  </div>
-                              </form>
-                           </div>
+                             
                            <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="insert();">Add Data</button>
+                              <button type="submit" class="btn btn-primary" >Add Data</button>
                            </div>
+                        </form>
+                     </div>
                         </div>
                      </div>
                   </div>
@@ -297,26 +299,28 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
-                           <div class="modal-body">
-                              <form id="changeRecordForm">
+                           
+                              <form id="changeRecordForm"  class="row needs-validation" onsubmit="return update();" novalidate>
+                                 <div class="modal-body">
                                  <div class="card-body">
                                     <div class="form-group">
                                        <lable>Cuisine id</lable>
                                        <input class="form-control" type="text"
-                                          id="rcuisine_id"></input>
+                                          id="rcuisine_id" readonly></input>
                                     </div>
                                     <div class="form-group">
                                        <lable>Cuisine name</lable>
                                        <input class="form-control" type="text"
-                                          id="rcuisine_name"></input>
+                                          id="rcuisine_name" pattern="[A-Za-z]{1,}" required></input>
                                     </div>
                                  </div>
-                              </form>
-                           </div>
+                              
                            <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update();">Update Data</button>
+                              <button type="submit" class="btn btn-primary" >Update Data</button>
                            </div>
+                        </form>
+                     </div>
                         </div>
                      </div>
                   </div>
@@ -385,4 +389,24 @@
       <script src="../js/pages/dashboard.js"></script>
       <script src="../js/try.js"></script>
    </body>
+   <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
 </html>

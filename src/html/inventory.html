@@ -257,91 +257,93 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
+                           <form id="addRecordForm" class="row needs-validation" onsubmit="return insert();" novalidate>
                            <div class="modal-body">
-                              <form id="addRecordForm">
                                  <div class="card-body">
                                     <div class="form-group">
                                        <label >sup_id</label>
                                        <input class="form-control" type="text"
-                                          id="sup_id"></input>
+                                          id="sup_id" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >item_name</label>
                                        <input class="form-control" type="text"
-                                          id="item_name"></input>
+                                          id="item_name" pattern="[A-Za-z]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >item_des</label>
                                        <input class="form-control" type="text"
-                                          id="item_des"></input>
+                                          id="item_des" pattern="[A-Za-z]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >current_stk</label>
-                                       <input class="form-control" type="text"
-                                          id="current_stk"></input>
+                                       <input class="form-control" type="tel"
+                                          id="current_stk" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >monthly_consuption</label>
                                        <input class="form-control" type="text"
-                                          id="monthly_consuption"></input>
+                                          id="monthly_consuption" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >ordering_cost</label>
                                        <input class="form-control" type="text"
-                                          id="ordering_cost"></input>
+                                          id="ordering_cost" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >stock_mang_cost</label>
                                        <input class="form-control" type="text"
-                                          id="stock_mang_cost"></input>
+                                          id="stock_mang_cost" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >product_per_unit</label>
                                        <input class="form-control" type="text"
-                                          id="product_per_unit"></input>
+                                          id="product_per_unit" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >reorder_level</label>
                                        <input class="form-control" type="text"
-                                          id="reorder_level"></input>
+                                          id="reorder_level" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >saftey_stk</label>
                                        <input class="form-control" type="text"
-                                          id="saftey_stk"></input>
+                                          id="saftey_stk" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >lot_size</label>
                                        <input class="form-control" type="text"
-                                          id="lot_size"></input>
+                                          id="lot_size" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >no_of_unt</label>
                                        <input class="form-control" type="text"
-                                          id="no_of_unt"></input>
+                                          id="no_of_unt" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">                  <label >product_price</label>
                                        <input class="form-control" type="text"
-                                          id="product_price"></input>
+                                          id="product_price" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >load_time</label>
                                        <input class="form-control" type="text"
-                                          id="load_time"></input>
+                                          id="load_time"  pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >monthly_cons</label>
                                        <input class="form-control" type="text"
-                                          id="monthly_cons"></input>
+                                          id="monthly_cons" pattern="[0-9]{1,}" required></input>
                                     </div>
                                  </div>
-                              </form>
-                           </div>
+                              
                            <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="insert();">Add Data</button>
+                              <button type="submit" class="btn btn-primary">Add Data</button>
                            </div>
-                        </div>
+                           </div>
+
+                        </form>
+                     </div>
                      </div>
                   </div>
                   <!--New Modal-->
@@ -356,96 +358,98 @@
                               <span aria-hidden="true">&times;</span>
                               </button>
                            </div>
+                           <form id="changeRecordForm" class="row needs-validation" onsubmit="return update();" novalidate>
+                               
                            <div class="modal-body">
-                              <form id="changeRecordForm">
-                                 <div class="card-body">
+                                <div class="card-body">
                                     <div class="form-group">
                                        <lable >item_id</lable>
                                        <input class="form-control" type="text"
-                                          id="ritem_id"></input>
+                                          id="ritem_id" readonly></input>
                                     </div>
                                     <div class="form-group">
                                        <label >sup_id</label>
                                        <input class="form-control" type="text"
-                                          id="rsup_id"></input>
+                                          id="rsup_id" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >item_name</label>
                                        <input class="form-control" type="text"
-                                          id="ritem_name"></input>
+                                          id="ritem_name" pattern="[A-Za-z]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >item_des</label>
                                        <input class="form-control" type="text"
-                                          id="ritem_des"></input>
+                                          id="ritem_des" pattern="[A-Za-z]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >current_stk</label>
                                        <input class="form-control" type="text"
-                                          id="rcurrent_stk"></input>
+                                          id="rcurrent_stk" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >monthly_consuption</label>
                                        <input class="form-control" type="text"
-                                          id="rmonthly_consuption"></input>
+                                          id="rmonthly_consuption" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >ordering_cost</label>
                                        <input class="form-control" type="text"
-                                          id="rordering_cost"></input>
+                                          id="rordering_cost" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >stock_mang_cost</label>
                                        <input class="form-control" type="text"
-                                          id="rstock_mang_cost"></input>
+                                          id="rstock_mang_cost" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >product_per_unit</label>
                                        <input class="form-control" type="text"
-                                          id="rproduct_per_unit"></input>
+                                          id="rproduct_per_unit" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >reorder_level</label>
                                        <input class="form-control" type="text"
-                                          id="rreorder_level"></input>
+                                          id="rreorder_level" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >saftey_stk</label>
                                        <input class="form-control" type="text"
-                                          id="rsaftey_stk"></input>
+                                          id="rsaftey_stk" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >lot_size</label>
                                        <input class="form-control" type="text"
-                                          id="rlot_size"></input>
+                                          id="rlot_size" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >no_of_unt</label>
                                        <input class="form-control" type="text"
-                                          id="rno_of_unt"></input>
+                                          id="rno_of_unt" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >product_price</label>
                                        <input class="form-control" type="text"
-                                          id="rproduct_price"></input>
+                                          id="rproduct_price" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >load_time</label>
                                        <input class="form-control" type="text"
-                                          id="rload_time"></input>
+                                          id="rload_time" pattern="[0-9]{1,}" required></input>
                                     </div>
                                     <div class="form-group">
                                        <label >monthly_cons</label>
                                        <input class="form-control" type="text"
-                                          id="rmonthly_cons"></input>
+                                          id="rmonthly_cons" pattern="[0-9]{1,}" required></input>
                                     </div>
                                  </div>
-                              </form>
-                           </div>
+                              
                            <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="update();">Update Data</button>
+                              <button type="submit" class="btn btn-primary">Update Data</button>
                            </div>
+                        </form>
+                     </div>
                         </div>
                      </div>
                   </div>
@@ -518,10 +522,28 @@
       <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
       <!-- AdminLTE App -->
       <script src="../js/adminlte.js"></script>
-      <!-- AdminLTE for demo purposes -->
-      <script src="../js/demo.js"></script>
       <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
       <script src="../js/pages/dashboard.js"></script>
       <script src="../js/try.js"></script>
    </body>
+   <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
 </html>
