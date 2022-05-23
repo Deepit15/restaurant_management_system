@@ -29,6 +29,90 @@ App = {
     });
   },
 
+
+  validateName : function (userName)
+  {
+    const regex = /^[(A-Za-z\s.)]+$/;
+    if(userName.trim() == "" || userName.trim() == null)
+    {
+      span[1].innerText="Blank Space not allowed";
+      span[1].style.color="red"; 
+      // userName.style.border="2px red solid";
+      // validateEmail();
+      return false;
+    }
+    else if(regex.test(userName.trim()))
+    {
+        span[1].innerText="Valid Name!";
+        span[1].style.color="lime"; 
+        // userName.style.border="2px lime solid";
+        // validateEmail();
+        return true;
+    }
+    else
+    {
+        span[1].innerText="Invalid Name!";
+        span[1].style.color="red";
+        // userName.style.border="2px red solid";
+        return false;
+    }
+  
+  },
+  
+  validateEmail : function(userEmail)
+  {
+    const regex=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(userEmail.trim() == "" || userEmail.trim() == null)
+    {
+      span[2].innerText = "Blank Email!";
+      span[2].style.color= "red";
+      // email.style.border="2px red solid";
+      return false;
+      
+    }
+    if(regex.test(userEmail.trim()))
+    {
+      span[2].innerText = "Valid Email!";
+      span[2].style.color="lime";
+      // email.style.border="2px lime solid";
+      return true;
+    }
+    else 
+    {
+      span[2].innerText = "Invalid Email!";
+      span[2].style.color="red";
+      // email.style.border="2px red solid";
+      return false;
+    }
+  },
+  
+  validatePhone : function(userPhone)
+  {
+    const regex = /^\d{10}$/;
+    if(userPhone.trim() == "" || userPhone.trim() == null)
+    {
+      span[3].innerText = "Blank Phone number!";
+      span[3].style.color= "red";
+      // email.style.border="2px red solid";
+      return false;
+      
+    }
+    if(regex.test(userPhone.trim()))
+    {
+      span[3].innerText = "Valid Phone number!";
+      span[3].style.color="lime";
+      // email.style.border="2px lime solid";
+      return true;
+    }
+    else 
+    {
+      span[3].innerText = "Invalid Phone number!";
+      span[3].style.color="red";
+      // email.style.border="2px red solid";
+      return false;
+    }
+  },
+
   getpatcustomer: function (i) {
     var x = document.getElementById("changeRecordForm");
     const api_url = "http://localhost:3000/customer/" + i;
