@@ -1066,6 +1066,13 @@ app.post("/food_sub_ordersupdate", (req, res) => {
 });
 
 //sub_order_id	order_id	food_id	price
+app.get("/amenu", (req, res) => {
+  mysqlConnection.query("select * from menu", (err, rows, fields) => {
+    if (!err) {
+      res.send(rows);
+    } else console.log(err);
+  });
+});
 
 app.post("/food_sub_ordersinsert", (req, res) => {
   console.log(req);
