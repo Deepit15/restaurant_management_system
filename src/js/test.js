@@ -1153,6 +1153,17 @@ app.post("/aorder", (req, res) => {
   );
 });
 
+app.get("/torder/:id", (req, res) => {
+  mysqlConnection.query(
+    "SELECT * FROM food_order f, menu m, food_sub_order s WHERE f.table_id = ? and f.order_id = s.order_id and m.menu_id=s.food_id order by f.order_id desc",
+    [req.params.id],
+    (err, rows, fields) => {
+      if (!err) res.send(rows);
+      else console.log(err);
+    }
+  );
+});
+
 
 app.get("/aorder", (req, res) => {
   // mysqlConnection.query('SELECT menu_id, menu_price, name, food_status, table_id from menu join ordertable where menu.menu_id = ordertable.food_id;',(err, rows, fields) => {

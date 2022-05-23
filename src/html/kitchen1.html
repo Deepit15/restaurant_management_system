@@ -36,10 +36,71 @@
   </head>
 
 <style>
-    * {
+    /* * {
       box-sizing: border-box;
-    }
+    } */
     
+    
+.flip-card {
+  /* background-color: transparent; */
+  /* width: 300px;
+  height: 300px;
+  perspective: 1000px; */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  /* background-color: #bbb; */
+  color: black;
+}
+ 
+
+.flip-card-back{
+  background-color: rgba(0, 118, 182, 0.959);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back
+{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  line-height: 300px;
+  text-align: center;
+  font-size: 60px;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.flip-card-back-non-veg {
+  background-color: rgba(220, 46, 2, 0.589);
+  color: white;
+  transform: rotateY(180deg);
+}
+
     #veg {
         background: #3d9912;
         color: #f1f1f1;  
@@ -47,7 +108,7 @@
     }
 
     #non-veg {
-        background: rgb(212, 52, 7);
+        background: rgb(220, 47, 2);
         color: #f1f1f1;
         font-weight: bolder !important;
     }
@@ -66,15 +127,23 @@
     }
 
     select {
-    border: 1px solid #fff;
+        border: 1px solid #fff;
+    background-color: transparent;
+    /* border: 1px solid #fff;
     background-color: rgba(255,255,255,.5);
-    padding: 5px;
+    padding: 5px; */
+}
+select option {
+    background-color: black; 
 }
 
+/* select option{
+background-color: #82caff;
+} */
     .card
     {
-        border-radius: 10px;
-        margin: 1%;
+        border-radius: 0px;
+        /* margin: 1%; */
     }
     
     /* Remove extra left and right margins, due to padding */
@@ -99,15 +168,15 @@
     
     /* Style the counter cards */
     .card {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      padding: 16px;
+      /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+      /* padding: 16px; */
       text-align: center;
       height: 200px;
-      background-color: #f1f1f1;
+      background-color: white;
       
     }
 
-    div.column {
+    /* div.column {
     height: 10em;
     position: relative }
 div.colum p {
@@ -117,7 +186,7 @@ div.colum p {
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%) }
+    transform: translate(-50%, -50%) } */
     </style>
 
 <script>
@@ -128,7 +197,7 @@ div.colum p {
 </script>
 
 <body onload="load();">
-    <nav class="navbar" style="background-color: #317414;border-radius: 0px;">
+    <nav class="navbar" style="background-color: rgba(0, 118, 182, 0.959);border-radius: 0px;">
         <div class="container-fluid">
           <div class="navbar-header">
            
@@ -139,17 +208,17 @@ div.colum p {
     </nav>
 <div>
   <section class="banner-section">
-    <table style="width:100%;">
+    <!-- <table style="width:100%;"> -->
       <!-- <tr>
         <th scope='row'>Item Name</th>
         <th scope='row'>Quantity</th>
         <th scope='row'>Status</th>
       </tr> -->
-      <tbody id="kitchen_table">
+      <div id="kitchen_table">
 
-      </tbody>
+      </div>
       
-    </table>
+    <!-- </table> -->
     </section>
 </div>   
 
