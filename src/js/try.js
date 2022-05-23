@@ -347,11 +347,11 @@ App = {
             "</h3></span></div></div>";
         } else {
           var a =
-            "<div class='column' ><div class='card' id='reserved'><h3>" +
+            "<a href='javascript:void(0)' onclick='display("+data[i].table_id+")' rel='no-refresh' ><div class='column' ><div class='card' id='reserved'><h3>" +
             data[i].table_id +
             "</h3><p style='display: block; margin-left: auto; margin-right: auto  '><h3><img src='../../assets/img/group.png' style='height:49px; width:49px;'/> " +
             data[i].no_person +
-            "</h3></p><h3>"+data[i].OTP+"</h3></div></div>";
+            "</h3></p><h3>"+data[i].OTP+"</h3></div></div></a>";
         }
         table.innerHTML += a;
         // console.log(data[0]);
@@ -784,31 +784,7 @@ App = {
   getpatbill: function (i) {
     var x = document.getElementById("changeRecordForm");
     const api_url = "http://localhost:3000/bill/" + i;
-    // console.log(api_url);
     data = this.getapi(api_url).then((data) => {
-    //   var list = {}
-    //  for (let j = 0; j < data.length; j++) {
-    //    var suc=1;
-    //   for (let z = 0; z < list.length; z++) {
-    //     {
-    //       if(list[z].food_id == data[j].food_item)
-    //       {
-    //         suc =0;
-    //         list[z].qnty = list[z].qnty + 1;
-    //         break;
-    //       }
-    //     }
-    //     if(suc==1)
-    //     {
-    //       var myObj = {
-    //         "food_item" : data[j].food_item,    
-    //         "qnty" : 1
-    //       };
-    //       list.push(myObj);
-    //     }
-    //  }
-    // }
-    // console.log(list);
     console.log(data);
     const qty = 1;
     var total = 0;
@@ -1504,6 +1480,11 @@ console.log(select.value);
     xhr.open("POST", "http://localhost:3000/change_status", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(dta);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4) {
+        App.getkitchentable1();
+      }
+    };
   },
 
   getkitchentable: function()
@@ -1542,21 +1523,42 @@ console.log(select.value);
         }
         
           var a =
-            "<div class='column' ><div class='card' id='"+data[i].food_type+"'><p><h2>" +
+          "<div class='column'><div class='flip-card card'><div class='flip-card-inner card text-center'> <div class='flip-card-front' id='"+data[i].food_type+"'><p><h2>" +
             data[i].name +
-            "</h2><br><h2> " +
+            " <br>" +
             data[i].quantity +
-            "</h2><br><h4> <select id='"+i+"' onchange='App.change_status("+data[i].sub_order_id+","+data[i].food_id +","+i+")'><option value='preparing'>Preparing</option><option value='prepared'>Prepared</option></h2></p></div></div>";
-        // var a =
-        //   "<tr><td scope='row'>" +
-        //   data[i].name +
-        //   "</td><td  scope='row'>" +
-        //   data[i].quantity +
-        //   "</td><td  scope='row'><select id='"+i+"' onchange='App.change_status("+data[i].sub_order_id+","+data[i].food_id +","+i+")'><option value='preparing'>Preparing</option><option value='prepared'>Prepared</option></td></tr>";
+            "</h2></div><div class='flip-card-back'><h2><select id='"+i+"' onchange='App.change_status("+data[i].sub_order_id+","+data[i].food_id +","+i+")'><option value='preparing'>Preparing</option><option value='prepared'>Prepared</option></h2></div></div></div></div>";
         
           kitchen_table.innerHTML += a;
       }
       // console.log("a")
+    });
+  },
+
+
+
+  getpattaborder: function (i) {
+    
+    var x = document.getElementById("changeRecordForm");
+    var b ="";
+    billdisplay.innerHTML =b;
+    const api_url = "http://localhost:3000/torder/" + i;
+    data = this.getapi(api_url).then((data) => {
+    console.log(data);
+    const qty = 1;
+    var total = 0;
+        for( var i =0; i<data.length; i++)
+        {
+          total = total + data[i].price;
+          var a = "<tr><td>" +data[i].name+
+          "<td><td>" +
+          data[i].quantity +
+          "</td><td>" +
+          data[i].price +
+          "</td></tr>";
+          billdisplay.innerHTML +=a;
+        }
+        $("#changedata").modal();
     });
   },
 
