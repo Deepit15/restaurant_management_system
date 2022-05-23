@@ -1341,7 +1341,26 @@ App = {
       }
     });
   },
-  
+  createOrder: function (cartData) {
+    const api_url = "http://localhost:3000/aorder";
+    var b = document.getElementById("Order");
+    console.log("Hello");
+    data = this.postapi(api_url, {crtItems: cartData}).then((data) => {
+      
+    window.location.href="../html/order.html"
+     
+      for (var i = 0; i < cartData.length; i++) {        
+        var a = "<th>" + cartData[i].menu_id + "</th><br><th>" +cartData[i].qty +"</th><br>";
+        console.log(cartData[i]);
+        //alert(JSON.stringify(cartData));
+        b += a;
+        
+        // console.log(Order.innerHTML);
+      }
+      
+    });
+  },
+
   getmenu: function () {
     var b = "";
     const api_url = "http://localhost:3000/menus";
@@ -1484,6 +1503,23 @@ App = {
     xhr.open("POST", "http://localhost:3000/menudelete", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(dta);
+  },
+
+  postapi: async function (url, body) {
+    // Storing response
+    //console.log("This is : "+body);
+    const response = await fetch(url, {
+      method: "POST",
+      headers:{
+          "Content-Type": "application/json",
+          'Accept': 'application/json'
+      },
+      body: JSON.stringify(body),
+    });
+    // Storing data in form of JSON
+    var data = await response.json();
+    // console.log(data);
+    return data;
   },
 
   getapi: async function (url) {
