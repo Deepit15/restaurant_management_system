@@ -792,13 +792,15 @@ App = {
         {
           total = total + data[i].price;
           var a = "<tr><td>" +data[i].name+
-          "<td><td>" +
+          "</td><td>" +
           qty +
           "</td><td>" +
           data[i].price +
           "</td></tr>";
           billdisplay.innerHTML +=a;
         }
+        var a ="<tr><td>Total Price</td><td></td><td>"+total+"</td>";
+        billdisplay.innerHTML +=a;
         $("#changedata").modal();
     });
   },
@@ -1551,13 +1553,17 @@ console.log(select.value);
         {
           total = total + data[i].price;
           var a = "<tr><td>" +data[i].name+
-          "<td><td>" +
+          "</td><td>" +
           data[i].quantity +
           "</td><td>" +
           data[i].price +
+          "</td><td>" +
+          data[i].status +
           "</td></tr>";
           billdisplay.innerHTML +=a;
         }
+        var a ="<tr><td>Total Price</td><td></td><td>"+total+"</td><td></td></tr>";
+        billdisplay.innerHTML +=a;
         $("#changedata").modal();
     });
   },
