@@ -1102,7 +1102,72 @@ app.get("/amenu", (req, res) => {
 });
 
 
+app.post("/aorder", (req, res) => {
+  // mysqlConnection.query('SELECT menu_id, menu_price, name, food_status, table_id from menu join ordertable where menu.menu_id = ordertable.food_id;',(err, rows, fields) => {
+  // INSERT INTO `rms`.`ordertable` () VALUES ('', '', '', '', '', '', '', '', '');
+  let orderIds = [];
+  async.forEach(
+    req.body.crtItems,
+    (crt, done) => {
+      //loop logic
+      mysqlConnection.query(
+        "SELECT price FROM menu WHERE menu_id=" + crt.menu_id,
+        (err, menus) => {
+          console.log(err);
+          console.log(menus);
+          mysqlConnection.query(
+            // "insert into ordertable(`food_id`, `food_price`, `waiter_id`, `food_status`, `cuisine_id`, `order_qt`, `table_id`) values(?,?,?,?,?,?,?);",
+            "insert into food_sub_order(`sub_order_id`, `order_id`, `food_id`, `price`) values(?,?,?,?);",
+            [
+              crt.menu_id,
+              1,
+              1,
+              menus[0].price ? menus[0].price : 0,
+              
+              // "Preparing",
+              // // 1,
+              // crt.qty
+              
+            ],
+            (err, insert) => {
+              if (!err) {
+                //console.log(insert.insertId);
+                orderIds.push(insert.insertId);
+                //console.log(orderIds);
+                done();
 
+              } else {
+                console.log(err);
+              }
+            }
+          );
+        }
+      );
+    },
+    (err) => {
+      //after loop
+      console.log(1111);
+      res.json({ orderIds });
+      // JSON.parse({orderIds});
+    }
+  );
+});
+
+
+app.get("/aorder", (req, res) => {
+  // mysqlConnection.query('SELECT menu_id, menu_price, name, food_status, table_id from menu join ordertable where menu.menu_id = ordertable.food_id;',(err, rows, fields) => {
+  mysqlConnection.query("select * from food_sub_order;", (err, rows, fields) => {
+    if (!err) {
+      //   console.log(rows);
+      // res.send(rows);
+      // res.sendFile(__dirname + '/order.html');
+      // res.redirect('/order.html')
+      console.log(rows);
+      JSON.stringify(rows);
+      // res.json({rows})
+    } else console.log(err);
+  });
+});
 
 app.post("/food_sub_ordersinsert", (req, res) => {
   console.log(req);
