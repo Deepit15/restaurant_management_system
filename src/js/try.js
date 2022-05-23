@@ -1313,7 +1313,7 @@ App = {
   },
 
   
-  getmenu: function () {
+  getfoodmenu: function () {
     var b = "";
     const api_url = "http://localhost:3000/menus";
     // console.log(api_url);
