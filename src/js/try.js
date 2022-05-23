@@ -1312,8 +1312,37 @@ App = {
     xhr.send(dta);
   },
 
-  
   getfoodmenu: function () {
+    var b = "";
+    const api_url = "http://localhost:3000/amenu";
+    // console.log(api_url);
+    Menu.innerHTML = b;
+    data = this.getapi(api_url).then((data) => {
+      // console.log(data.length);
+      // x = data.length;
+      for (var i = 0; i <= data.length; i++) {
+        var a =
+          "<tr class='foodrow'><td><img class='foodimg' src='../../assets/img/menu/" +
+          data[i].image +
+          ".png'/></td><td id='foodcol'><p id='foodname'>" +
+          data[i].name +
+          "</p><p id='fooddesc'>" +
+          data[i].food_des +
+          "</p></td><td class='price-button'><p class='price'>" +
+          data[i].price +
+          "</p><div class='addButton'><button class='btn btn-demo btn-change' onClick='decrease(" +
+          data[i].menu_id +
+          ")'>-</button><p  name='totalitem' id=" +
+          data[i].menu_id +
+          ">0</p><button class='btn btn-demo btn-change' onClick='increase(" +
+          data[i].menu_id +
+          ")'>+</button></div></td></tr>";
+        Menu.innerHTML += a;
+      }
+    });
+  },
+  
+  getmenu: function () {
     var b = "";
     const api_url = "http://localhost:3000/menus";
     // console.log(api_url);
