@@ -1486,6 +1486,80 @@ App = {
     xhr.send(dta);
   },
 
+  change_status: function(order_id,food_id,element)
+  {
+    var xhr = new XMLHttpRequest();
+//     var select = document.getElementById(element.id);
+// var value = select.value;
+var select = document.getElementById(element);
+console.log(select.value);
+    // var stat = "document.getElementById("+id+").value";
+    var dta = JSON.stringify({
+      foood: {
+        sub_order_id: order_id,
+        foood_id: food_id,
+        status : select.value
+      },
+    });
+    xhr.open("POST", "http://localhost:3000/change_status", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(dta);
+  },
+
+  getkitchentable: function()
+  {
+    var b = "";
+    const api_url = "http://localhost:3000/food_sub_order";
+    kitchen_table.innerHTML = b;
+    data = this.getapi(api_url).then((data) => {
+      // console.log("y");
+      for (var i = 0; i <= data.length; i++) {
+        var a =
+          "<tr><td scope='row'>" +
+          data[i].name +
+          "</td><td  scope='row'>" +
+          data[i].quantity +
+          "</td><td  scope='row'><select id='"+i+"' onchange='App.change_status("+data[i].sub_order_id+","+data[i].food_id +","+i+")'><option value='preparing'>Preparing</option><option value='prepared'>Prepared</option></td></tr>";
+        kitchen_table.innerHTML += a;
+      }
+      // console.log("a")
+    });
+  },
+
+  getkitchentable1: function()
+  {
+    var b = "";
+    const api_url = "http://localhost:3000/food_sub_order";
+    kitchen_table.innerHTML = b;
+    data = this.getapi(api_url).then((data) => {
+      // console.log("y");
+      for (var i = 0; i <= data.length; i++) {
+        if (i % 4 == 0) {
+          if (i != 0) {
+            kitchen_table.innerHTML += "</div>";
+          }
+          kitchen_table.innerHTML += "<div class='row'>";
+        }
+        
+          var a =
+            "<div class='column' ><div class='card' id='vacant'><h3>" +
+            data[i].name +
+            "</h3><p> " +
+            data[i].quantity +
+            "</h3></p><h3><p> <select id='"+i+"' onchange='App.change_status("+data[i].sub_order_id+","+data[i].food_id +","+i+")'><option value='preparing'>Preparing</option><option value='prepared'>Prepared</option></p></h3></span></div></div>";
+        // var a =
+        //   "<tr><td scope='row'>" +
+        //   data[i].name +
+        //   "</td><td  scope='row'>" +
+        //   data[i].quantity +
+        //   "</td><td  scope='row'><select id='"+i+"' onchange='App.change_status("+data[i].sub_order_id+","+data[i].food_id +","+i+")'><option value='preparing'>Preparing</option><option value='prepared'>Prepared</option></td></tr>";
+        
+          kitchen_table.innerHTML += a;
+      }
+      // console.log("a")
+    });
+  },
+
   getapi: async function (url) {
     // Storing response
     const response = await fetch(url);

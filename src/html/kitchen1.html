@@ -42,7 +42,7 @@
     
     #vacant {
         background: #FF6161;
-        color: #f1f1f1;
+        color: #070707;
     }
 
     #reserved {
@@ -62,6 +62,12 @@
       padding: 0 10px;
       /* margin: 30px; */
     }
+
+    select {
+    border: 1px solid #fff;
+    background-color: rgba(255,255,255,.5);
+    padding: 5px;
+}
 
     .card
     {
@@ -103,7 +109,7 @@
 <script>
     function load()
     {
-        App.getkitchentable();
+        App.getkitchentable1();
     }
 </script>
 
@@ -127,11 +133,11 @@
 <div>
   <section class="banner-section">
     <table style="width:100%;">
-      <!-- <tr>
+      <tr>
         <th scope='row'>Item Name</th>
         <th scope='row'>Quantity</th>
         <th scope='row'>Status</th>
-      </tr> -->
+      </tr>
       <tbody id="kitchen_table">
 
       </tbody>

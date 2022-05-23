@@ -63,6 +63,33 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/food_sub_order", (req, res) => {
+  mysqlConnection.query("SELECT * FROM food_sub_order f, menu m where m.menu_id = f.food_id and f.status='preparing';", (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+
+app.post("/change_status", (req, res) => {
+  console.log("in");
+  console.log(req.body);
+  let food = req.body.foood;
+  console.log(food);
+  mysqlConnection.query(
+    "update food_sub_order set status= '" +
+      food.status +
+      "' where sub_order_id = " +
+      food.sub_order_id +" and food_id="+food.foood_id+
+      ";",
+    (err, rows, fields) => {
+      if (!err) res.send("success");
+      else res.send(err);
+    }
+  );
+});
+
+
 app.get("/customers", (req, res) => {
   mysqlConnection.query("SELECT * FROM customer", (err, rows, fields) => {
     if (!err) res.send(rows);
