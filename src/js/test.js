@@ -1046,7 +1046,7 @@ app.post("/invinsert", (req, res) => {
 
 /************************ */
 app.get("/food_sub_order", (req, res) => {
-  mysqlConnection.query("SELECT * FROM food_sub_order f join menu m where f.food_id = m.menu_id", (err, rows, fields) => {
+  mysqlConnection.query("SELECT * FROM food_sub_order f join menu m where f.food_id = m.menu_id and f.status='preparing'", (err, rows, fields) => {
     if (!err) res.send(rows);
     else console.log(err);
   });

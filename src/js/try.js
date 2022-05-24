@@ -342,9 +342,7 @@ App = {
           var a =
             "<div class='column' ><div class='card' id='vacant'><h3>" +
             data[i].table_id +
-            "</h3><p><span  style='display: block; margin-left: auto; margin-right: auto  '><h3><img src='../../assets/img/group.png' style='height:49px; width:49px;' /> " +
-            data[i].no_person +
-            "</h3></span></div></div>";
+            "</h3><p><span  style='display: block; margin-left: auto; margin-right: auto  '><h3><img src='../../assets/img/group.png' style='height:49px; width:49px;' /> </h3></span></div></div>";
         } else {
           var a =
             "<a href='javascript:void(0)' onclick='display("+data[i].table_id+")' rel='no-refresh' ><div class='column' ><div class='card' id='reserved'><h3>" +
@@ -1523,6 +1521,13 @@ console.log(select.value);
           }
           kitchen_table.innerHTML += "<div class='row'>";
         }
+
+        // var a =
+        //     "<div class='column' ><div class='card' id='"+data[i].food_type+"'><h3>" +
+        //     data[i].name +
+        //     "</h3><p>" +
+        //     data[i].quantity +
+        //     "</p></h3><h3><p><select id='"+i+"' onchange='App.change_status("+data[i].sub_order_id+","+data[i].food_id +","+i+")'><option value='preparing'>Preparing</option><option value='prepared'>Prepared</option></select></p></h3></div></div>";
         
           var a =
           "<div class='column'><div class='flip-card card'><div class='flip-card-inner card text-center'> <div class='flip-card-front' id='"+data[i].food_type+"'><p><h2>" +
